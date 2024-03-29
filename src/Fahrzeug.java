@@ -1,16 +1,11 @@
 public class Fahrzeug {
-    public String ID;
+    public String kennzeichen;
 
-    public Fahrzeug(String ID){
-        this.ID = ID;
+    public Fahrzeug(String kennzeichen){
+        this.kennzeichen = kennzeichen;
     }
 
-    public void befahren(){
-        System.out.println("Ich möchte reinfahren!");
+    public String getKennzeichen(){
+        return kennzeichen;
     }
-    
-    public void verlassen(){
-        System.out.println("Ich möchte rausfahren!");
-    }
-
 }

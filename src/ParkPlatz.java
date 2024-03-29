@@ -1,14 +1,9 @@
 public class ParkPlatz {
-    public int reihenNr;
-    public int spaltenNr;
-    public int etage;
-    Fahrzeug fahrzeug = null;
+    private Fahrzeug fahrzeug = null;
 
-
-    ParkPlatz(int reihenNr, int spaltenNr, int etage){
-        this.reihenNr = reihenNr;
-        this.spaltenNr = spaltenNr;
-        this.etage = etage;
+    //Methode zu überprüfen, ob der Parkplatz frei ist
+    public boolean istFrei(){
+        return fahrzeug == null;
     }
 
     public void einparken(Fahrzeug fahrzeug){
@@ -17,6 +12,15 @@ public class ParkPlatz {
         }else{
             System.out.println("Parkplatz schon besetzt!");
         }
-    } 
+    }
+
+    public void verlassen(){
+        this.fahrzeug = null;
+    }
+
+    // Methode, um das Fahrzeug auf dem Parkplatz abzurufen
+    public Fahrzeug getFahrzeug(){
+        return fahrzeug;
+    }
 }
 
