@@ -11,9 +11,9 @@ public class App {
         venceParkhaus.einfahren(volkswagen);
         venceParkhaus.einfahren(toSi);
 
-        System.out.println("Position von mercedes: " + venceParkhaus.findePosition(mercedes));
+        //System.out.println("Position von mercedes: " + venceParkhaus.findePosition(mercedes));
 
-        System.out.println("Position von mercedes: " + venceParkhaus.findePosition(toSi));
+        //System.out.println("Position von mercedes: " + venceParkhaus.findePosition(toSi));
 
         System.out.println("Anzahl der freien Plätze: " + venceParkhaus.anzahlFreieParkplaetze());
 

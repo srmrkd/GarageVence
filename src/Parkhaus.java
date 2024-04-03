@@ -1,21 +1,21 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Parkhaus {
-    private List<Etage> etagen;
+    private Map<Integer, Etage> etagen;
 
     //Konstruktur-Flexibel für die Anzahl von Etagen und Parkplätze
     public Parkhaus(int anzahlEtagen, int parkplaetzeProEtage){
-        etagen = new ArrayList<>();
+        etagen = new HashMap<>();
         for(int i=0; i<anzahlEtagen; i++){
-            etagen.add(new Etage(parkplaetzeProEtage));
+            etagen.put(i+1, new Etage(parkplaetzeProEtage));
         }
     }
 
     //Methode, um ein Fahrzeug in das Parkhaus einzufahren
     public boolean einfahren(Fahrzeug fahrzeug){
         //jede etage Überprüfen, um einen Platz zu finden
-        for(Etage etage: etagen){
+        for(Etage etage: etagen.values()){
             for(ParkPlatz parkplatz: etage.getParkPlaetze()){
                 if(parkplatz.istFrei()){
                     parkplatz.einparken(fahrzeug);
@@ -28,7 +28,7 @@ public class Parkhaus {
 
     //Methode, um ein Fahrzeug aus dem Parkhaus auszufahren
     public boolean verlassen(Fahrzeug fahrzeug){
-        for(Etage etage: etagen){
+        for(Etage etage: etagen.values()){
             for(ParkPlatz parkplatz: etage.getParkPlaetze()){
                 if(parkplatz.getFahrzeug() == fahrzeug){
                     parkplatz.verlassen();
@@ -56,7 +56,7 @@ public class Parkhaus {
     //Methode, um die Anzahl der noch freien Parkplätze abzufragen
     public int anzahlFreieParkplaetze() {
         int count = 0;
-        for (Etage etage : etagen) {
+        for (Etage etage : etagen.values()) {
             for (ParkPlatz parkplatz : etage.getParkPlaetze()) {
                 if (parkplatz.istFrei()) {
                     count++;
